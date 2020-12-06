@@ -32,7 +32,7 @@ app.get('/', function(req, res, next) {
     res.send(info);
 });
 
-app.all('/all', function(req, res, next) {
+app.all('/', function(req, res, next) {
     let info = util.format('%s - %s %s %s %s', new Date().toLocaleString(), req.protocol, req.method, req.originalUrl, req.ip);
     console.log(info);
     res.send(info);
