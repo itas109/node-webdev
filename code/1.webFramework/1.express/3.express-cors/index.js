@@ -9,19 +9,9 @@ const express = require('express');
 
 const router = require('./routes/index.js');
 
-const logger = require('morgan');
-
 const httpPort = 8080;
-const httpsPort = 8081;
 
 const app = express();
-
-// log requests
-app.use(logger('dev'));
-
-// enable req.body
-app.use(express.json()); // application/json => req.body 
-app.use(express.urlencoded({ extended: false })) // x-ww-form-urlencoded => req.body
 
 let httpServer = http.createServer(app);
 
