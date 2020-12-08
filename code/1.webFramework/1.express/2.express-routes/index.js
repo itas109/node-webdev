@@ -28,10 +28,16 @@ let option = {
 let httpServer = http.createServer(app);
 let httpsServer = https.createServer(option, app);
 
-router(app);
+app.use('/', router);
 
 httpServer.listen(httpPort);
 httpsServer.listen(httpsPort);
 
 console.log(util.format('http://localhost:%s',httpPort));
 console.log(util.format('https://localhost:%s',httpsPort));
+
+console.log('try:');
+console.log('  all /');
+console.log('  GET /user/:userid');
+console.log('  GET /download/download.json');
+console.log('  GET /download/中文.txt');
