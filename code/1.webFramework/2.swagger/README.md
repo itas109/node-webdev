@@ -6,7 +6,9 @@ nodejs : 12.13.0
 
 swagger-editor : 3.15.8(2021-03-04)
 
-swagger-codegen-cli : 2.4.9(2019-10-14)
+swagger-codegen : 2.4.9(2019-10-14)
+
+swagger-ui : 3.44.1(2021-03-04)
 
 ## 前言
 
@@ -185,9 +187,7 @@ https://github.com/swagger-api/swagger-editor
 
 https://github.com/swagger-api/swagger-editor/archive/v3.15.8.tar.gz
 
-
-
-在线编辑：http://editor.swagger.io
+- 在线编辑：http://editor.swagger.io
 
 - 本地编辑：
   - `git clone https://github.com/swagger-api/swagger-editor.git && cd swagger-editor` 
@@ -206,7 +206,7 @@ https://github.com/swagger-api/swagger-editor/archive/v3.15.8.tar.gz
 
 ## 3. swagger-codegen生成代码(以服务端为例)
 
-经过上节我们可以生成`RESTful API`的yaml文件，本节介绍如何通过yaml文件生成服务端代码(这里以NodeJS为例)。
+经过上节我们可以生成`RESTful API`的yaml文件，本节介绍如何通过yaml文件生成代码(这里以NodeJS服务端为例)。
 
 ### 3.1 swagger-codegen简介
 
@@ -283,6 +283,47 @@ java Version 8 Update 271 (2020-10-20)
 https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
 
 ## 4. swagger-ui
+
+### 4.1 swagger-ui简介
+
+上节中的swagger-codegen生成的nodejs-server代码运行后也可以查看在线API文档。
+
+本节中的swagger-ui是`无依赖`的在线API文档，其仅包含HTML、JS和CSS。
+
+### 4.2 swagger-ui使用
+
+```
++--- swagger-ui
+|   +--- favicon-16x16.png
+|   +--- favicon-32x32.png
+|   +--- index.html
+|   +--- swagger-ui-bundle.js
+|   +--- swagger-ui-standalone-preset.js
+|   +--- swagger-ui.css
+|   +--- swagger-ui.js
+```
+
+index.html修改
+
+```
+SwaggerUIBundle({
+    "url": "swagger.yaml", // 本文件相同目录下的本地文件，也可以为远程文件
+    "validatorUrl": false, // 不校验
+})
+```
+
+运行
+
+```
+cd swagger-ui
+http-server -p 8080
+```
+
+### 4.3 swagger-ui地址
+
+https://github.com/swagger-api/swagger-ui
+
+https://github.com/swagger-api/swagger-ui/archive/v3.44.1.tar.gz
 
 ---
 
