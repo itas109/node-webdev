@@ -5,7 +5,7 @@ static napi_value helloMethod(napi_env env, napi_callback_info info)
 {
     napi_value result;
 
-    NAPI_CALL(env, napi_create_string_utf8(env, "hello world", 11, &result));
+    NAPI_CALL(env, napi_create_string_utf8(env, "hello world", NAPI_AUTO_LENGTH, &result));
 
     return result;
 }

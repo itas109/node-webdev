@@ -6,7 +6,7 @@ static napi_value helloMethod(napi_env env, napi_callback_info info)
     napi_status status;
     napi_value result;
 
-    status = napi_create_string_utf8(env, "hello world", 11, &result);
+    status = napi_create_string_utf8(env, "hello world", NAPI_AUTO_LENGTH, &result);
     assert(status == napi_ok);
 
     return result;
