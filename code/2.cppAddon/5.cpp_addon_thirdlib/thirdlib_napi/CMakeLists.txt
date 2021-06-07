@@ -4,6 +4,7 @@ project(addon)
 
 message(STATUS "operation system is ${CMAKE_SYSTEM}")
 
+add_definitions(-std=c++11)
 #add_compile_options(-g)
 
 # 设置头文件路径
