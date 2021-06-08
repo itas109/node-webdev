@@ -5,7 +5,37 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) 启动",
+            "type": "node",
+            "request": "launch",
+            "name": "node launch",
+            "program": "${workspaceFolder}/index.js",
+            "env": {
+                "path": "${workspaceFolder}/thirdlib/bin_win/Debug;%path%"
+            },
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "name": "windows cpp launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "D:/Program Files/nodejs/node.exe",
+            "args": [
+                "${workspaceFolder}/index.js"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [
+                {
+                    "name": "path",
+                    "value": "${workspaceFolder}/thirdlib/bin_win/Debug;%path%"
+                }
+            ],
+            "console": "externalTerminal"
+        },
+        {
+            "name": "linux cpp launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "/usr/local/bin/node",
@@ -24,7 +54,7 @@
             "MIMode": "gdb",
             "setupCommands": [
                 {
-                    "description": "为 gdb 启用整齐打印",
+                    "description": "enable pretty printing",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }

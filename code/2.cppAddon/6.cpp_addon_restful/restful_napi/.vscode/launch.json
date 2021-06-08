@@ -5,20 +5,36 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/index.js",
+            "type": "node",
             "request": "launch",
+            "name": "node launch",
+            "program": "${workspaceFolder}/index.js",
+            "env": {},
             "skipFiles": [
                 "<node_internals>/**"
-            ],
-            "type": "pwa-node"
+            ]
         },
         {
-            "name": "g++ - 生成和调试活动文件",
+            "name": "windows cpp launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "D:/Program Files/nodejs/node.exe",
+            "args": [
+                "${workspaceFolder}/index.js"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal"
+        },
+        {
+            "name": "linux cpp launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "/usr/local/bin/node",
-            "args": ["${workspaceFolder}/index.js"],
+            "args": [
+                "${workspaceFolder}/index.js"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
@@ -26,12 +42,12 @@
             "MIMode": "gdb",
             "setupCommands": [
                 {
-                    "description": "为 gdb 启用整齐打印",
+                    "description": "enable pretty printing",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ],
-            "miDebuggerPath": "/bin/gdb"
+            ],            
+            "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
 }
