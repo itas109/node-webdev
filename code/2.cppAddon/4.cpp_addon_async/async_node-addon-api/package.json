@@ -1,0 +1,14 @@
+{
+  "name": "async",
+  "version": "1.0.0",
+  "description": "Node.js Addons Example",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "bindings": "~1.5.0"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "gypfile": true
+}
