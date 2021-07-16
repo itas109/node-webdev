@@ -10,8 +10,9 @@
 <img alt="language" src="https://img.shields.io/badge/language-javascript&c++-red"/>
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/itas109/node-webdev">
 </p>
+node web开发从0到1 
 
-node web开发从0到1 node web development zero to one
+node web development zero to one
 
 ---
 
@@ -27,6 +28,7 @@ code
 |   |   +--- 4.express-middleware
 |   |   +--- 5.express-swagger
 |   |   +--- 6.express-routes-swagger
+|   |   +--- 7.express-autoindex
 |   +--- 2.swagger # swagger框架
 |   |   +--- 1.swagger-editor # swagger可视化编辑器
 |   |   +--- 2.swagger-codegen # swagger代码生成器
@@ -72,6 +74,7 @@ code
 |   +--- js-yaml # yaml解析和序列化模块
 |   +--- morgan # http请求日志中间件
 |   +--- node-addon-api # 简化使用N-API的外挂类库
+|   +--- serve-index # 目录浏览autoindex
 |   +--- swagger-tools # swagger工具集
 |   +--- depends.md
 ```
