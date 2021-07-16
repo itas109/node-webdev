@@ -1,0 +1,30 @@
+{
+  "name": "express-autoindex",
+  "version": "1.0.0",
+  "description": "express serve directory listings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itas109/node-webdev.git"
+  },
+  "keywords": [
+    "web",
+    "express",
+    "autoindex",
+    "serve-index",
+    "serve",
+    "nginx"
+  ],
+  "author": "itas109",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itas109/node-webdev/issues"
+  },
+  "homepage": "https://github.com/itas109/node-webdev#readme",
+  "dependencies": {
+    "serve-index": "^1.9.1"
+  }
+}
