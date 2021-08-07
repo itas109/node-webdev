@@ -25,5 +25,6 @@ console.log('\ntry:');
 console.log('  all /');
 console.log('  GET(swagger) /v1/user/login?username=:username&password=:password');
 console.log('  GET(swagger) /v1/user/:userid');
+console.log('  POST(swagger body) /v1/user/resetPassword');
 console.log('  GET(swagger) /docs');
 console.log('  GET /user/:userid');

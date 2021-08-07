@@ -13,6 +13,8 @@ http://localhost:8080/docs/
 http://127.0.0.1:8080/v1/user/login?username=aaa&password=bbb
 http://127.0.0.1:8080/v1/user/aaa
 
+http://127.0.0.1:8080/v1/user/resetPassword    【body:{"userId": 1,"oldPwd": "xxx","newPwd": "xxx"}】
+
 http://127.0.0.1:8080
 http://127.0.0.1:8080/user/aaa
 ```

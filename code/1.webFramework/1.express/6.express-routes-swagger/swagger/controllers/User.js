@@ -15,6 +15,17 @@ module.exports.userLoginGET = function userLoginGET (req, res, next) {
     });
 };
 
+module.exports.userResetPasswordPOST = function userResetPasswordPOST (req, res, next) {
+  var body = req.swagger.params['body'].value;
+  User.userResetPasswordPOST(body)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
 module.exports.userUsernameGET = function userUsernameGET (req, res, next) {
   var username = req.swagger.params['username'].value;
   User.userUsernameGET(username)
