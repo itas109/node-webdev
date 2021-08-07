@@ -88,7 +88,7 @@ paths: # 【必选】API有效的路径和操作
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
-          description: Invalid username supplied
+          description: Invalid username
           schema:
             $ref: '#/definitions/ApiErrorResponse'
         '404':
@@ -101,6 +101,34 @@ paths: # 【必选】API有效的路径和操作
             - 'read:user'
         - token: []
         - BasicAuth: []
+  /user/resetPassword:
+    post:
+      tags:
+      - user
+      summary: reset password with body
+      description: reset password with body {"userId":1, "oldPwd":"xxx","newPwd":"xxx"}
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Body'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid parameter
+          schema:
+            $ref: '#/definitions/ApiErrorResponse'
+        '404':
+          description: User not found
+          schema:
+            $ref: '#/definitions/ApiErrorResponse'
 securityDefinitions: # 安全定义
   user_auth:
     type: oauth2
@@ -142,3 +170,9 @@ definitions:
       message:
         type: string
         description: "code details information"
+  Body:
+    type: object
+    properties:
+      self-defined:
+        type: string
+        description: "any self-defined object"
