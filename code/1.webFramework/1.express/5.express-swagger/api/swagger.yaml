@@ -88,7 +88,7 @@ paths:
           schema:
             $ref: "#/definitions/ApiResponse"
         400:
-          description: "Invalid username supplied"
+          description: "Invalid username"
           schema:
             $ref: "#/definitions/ApiErrorResponse"
         404:
@@ -101,6 +101,37 @@ paths:
         - "read:user"
       - token: []
       - BasicAuth: []
+      x-swagger-router-controller: "User"
+  /user/resetPassword:
+    post:
+      tags:
+      - "user"
+      summary: "reset password with body"
+      description: "reset password with body {\"userId\":1, \"oldPwd\":\"xxx\",\"\
+        newPwd\":\"xxx\"}"
+      operationId: "userResetPasswordPOST"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Body"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Invalid parameter"
+          schema:
+            $ref: "#/definitions/ApiErrorResponse"
+        404:
+          description: "User not found"
+          schema:
+            $ref: "#/definitions/ApiErrorResponse"
       x-swagger-router-controller: "User"
 securityDefinitions:
   user_auth:
@@ -155,6 +186,12 @@ definitions:
     example:
       code: 200102
       message: "input params error"
+  Body:
+    type: "object"
+    properties:
+      self-defined:
+        type: "string"
+        description: "any self-defined object"
 externalDocs:
   description: "external docs"
   url: "https://github.com/itas109"

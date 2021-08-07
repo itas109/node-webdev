@@ -30,6 +30,32 @@ exports.userLoginGET = function(username,password) {
 
 
 /**
+ * reset password with body
+ * reset password with body {\"userId\":1, \"oldPwd\":\"xxx\",\"newPwd\":\"xxx\"}
+ *
+ * body Body 
+ * returns ApiResponse
+ **/
+exports.userResetPasswordPOST = function(body) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = {
+  "code" : 0,
+  "message" : "success",
+  "data" : [ {
+    "body" : body
+  } ]
+};
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
  * Get user by user name
  * 
  *
