@@ -17,13 +17,16 @@ const logger = require('morgan');
 app.use(logger('dev'));
 console.log('load Third-party middleware - morgan logger dev');
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/', function (req, res, next) {
     res.send('index');
 })
 
-app.get('/test', function (req, res, next) {
-    let jsonObj = {"code":random(1, 100),"message":"success","data":[]};
-    addon.asyncDoWork(JSON.stringify(jsonObj), result => {
+app.get('/test/:text', function (req, res, next) {
+    let text = req.params.text;
+    addon.asyncDoWork(text, result => {
         res.send(result);
     })
 })
