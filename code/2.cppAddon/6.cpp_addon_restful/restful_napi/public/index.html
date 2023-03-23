@@ -29,10 +29,25 @@
         <h2>Title</h2>
     </div>
 
+    <div id="time" align="right"></div>
+
+    <hr />
+
+    <div>
+        <label class="pid"></label>
+        <div />
+        <button id='onSaveConfig' onclick="onSaveConfig()"">saveConfig</button>
+        <button id='onClearConfig' onclick="onClearConfig()"">clearConfig</button>
+        <button id='gc' onclick="onGC()"">garbageCollection</button>
+        <button id='exit' onclick="onExit()"">exit</button>
+    </div>
+
+    <hr />
+
     <div>
         <label>Test</label>
         <input id='test' value='你好test' type="text">
-        <button id='test' onclick="onTest($('#test').val())"">test</button>
+        <button id='onTest' onclick="onTest($('#test').val())"">test</button>
     </div>
 
     <hr />
@@ -46,6 +61,8 @@
             <input id='input2' value='test2' type="text">
             <button id='outputLog2' onclick="output($('#input2').val(),'#log2')">outputLog2</button>
     </div>
+
+    <hr />
 
     <div id="left">
         <div class="page-header">
@@ -63,10 +80,34 @@
         <pre id="log2"></pre>
     </div>
 
-    <script src='js/jquery-3.6.0.min.js'></script>
+    <script src='js/jquery-3.6.4.min.js'></script>
+    <script src='js/dayjs.min.js'></script>
     <script>
+        setInterval(()=>{
+            $('#time').text(dayjs().format("YYYY-MM-DD HH:mm:ss.SSS"));
+        },1000);
+
+        $.get("pid", function (pid) {
+            $(".pid").html("pid: " + pid);
+        });
+             
+        if(localStorage.getItem("test")){
+            $('#test').val(localStorage.getItem("test"));
+        }
+
+        function onSaveConfig() {
+            localStorage.setItem("test", $('#test').val());
+            output("save config");
+        }
+
+        function onClearConfig() {
+            localStorage.clear();
+            output("clear config");
+        }
+
         function output(str, id = '#log1') {
-            $(id).append(str + "\n");
+            let result = dayjs().format("YYYY-MM-DD HH:mm:ss.SSS");
+            $(id).append(result + " - " + str + "\n");
         }
 
         function onClear(id = '#log1') {
@@ -75,6 +116,18 @@
 
         function onTest(str) {
             $.get("test/" + encodeURI(str), function (result) {
+                output(result);
+            });
+        }
+
+        function onGC() {
+            $.get("gc", function (result) {
+                output(result);
+            });
+        }
+
+        function onExit() {
+            $.get("exit", function (result) {
                 output(result);
             });
         }

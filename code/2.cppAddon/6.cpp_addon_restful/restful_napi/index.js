@@ -1,5 +1,8 @@
 'use strict';
 
+// memory output to file
+require('./dump.js');
+
 const http = require('http');
 const express = require('express');
 const app = express();
@@ -22,6 +25,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res, next) {
     res.send('index');
+})
+
+app.get('/pid', function (req, res, next) {
+    res.send(`${process.pid}`);
+})
+
+app.get('/gc', function (req, res, next) {
+    try {
+        global.gc();
+        res.send(JSON.stringify(process.memoryUsage()));
+    } catch (error) {
+        res.send("Please start app with --expose-gc, such as node --expose-gc index.js");
+    }
+})
+
+app.get('/exit', function (req, res, next) {
+    res.send('exit');
+    process.exit(0);
 })
 
 app.get('/test/:text', function (req, res, next) {
