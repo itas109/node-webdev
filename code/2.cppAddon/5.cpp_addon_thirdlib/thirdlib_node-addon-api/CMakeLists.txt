@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(addon)
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
 message(STATUS "operation system is ${CMAKE_SYSTEM}")
 
 add_definitions(-std=c++11)
@@ -10,14 +14,10 @@ add_definitions(-std=c++11)
 # 设置头文件路径
 include_directories(${CMAKE_JS_INC})
 include_directories(.)
-include_directories(thirdlib) # thirdlib include
 
-# 设置库链接路径
-if(WIN32)
-link_directories(${PROJECT_SOURCE_DIR}/thirdlib/bin_win/Debug)
-elseif(UNIX)
-link_directories(${PROJECT_SOURCE_DIR}/thirdlib/bin_unix)
-endif()
+# thirdlib
+include_directories(thirdlib)  
+add_subdirectory(thirdlib)
 
 # 源文件列表
 file(GLOB SOURCE_FILES addon.cpp)

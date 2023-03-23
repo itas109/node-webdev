@@ -25,3 +25,13 @@ JS output :  9
 ## 其他
 
 linux需要先安装 gcc g++ gdb，只有debug版本的程序才能打断点调试
+
+---
+
+cmake方式支持同时编译第三方库
+
+```
+$ cmake-js configure 
+$ cmake-js build --debug
+$ node index.js
+```
