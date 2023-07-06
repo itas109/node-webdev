@@ -1,15 +1,14 @@
 {
-  "name": "hello_world",
-  "version": "1.0.0",
-  "description": "Node.js Addons Example #1",
-  "main": "hello.js",
-  "private": true,
-  "dependencies": {
-    "bindings": "~1.5.0",
-    "node-addon-api": "^3.2.1"
-  },
-  "scripts": {
-    "test": "node index.js"
-  },
-  "gypfile": true
+    "name": "hello_world",
+    "version": "1.0.0",
+    "description": "Node.js Addons Example",
+    "main": "index.js",
+    "private": true,
+    "dependencies": {
+        "bindings": "~1.5.0"
+    },
+    "scripts": {
+        "test": "node index.js"
+    },
+    "gypfile": true
 }
