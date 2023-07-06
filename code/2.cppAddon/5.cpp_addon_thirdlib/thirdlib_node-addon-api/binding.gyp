@@ -8,7 +8,7 @@
       "include_dirs": [ ],
       'defines': [ 'NAPI_DISABLE_CPP_EXCEPTIONS' ],
 	    'include_dirs':[ 
-        "<!@(node -p \"require('node-addon-api').include\")",
+        "../../node-addon-api",
         'thirdlib' 
       ],
       'libraries':[ '-lmyadd' ],
